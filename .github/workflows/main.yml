@@ -16,6 +16,7 @@ jobs:
         with:
           channel: beta
       - run: flutter config --enable-windows-desktop
+      - run: flutter create --platforms=windows
       - run: flutter pub get
       - run: flutter build windows
     
