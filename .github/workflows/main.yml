@@ -20,7 +20,7 @@ jobs:
       - run: flutter create --platforms=windows .
       - run: flutter devices
       - run: flutter pub get
-      - run: flutter build windows
+      - run: flutter build windows --release
       - run: tree
     
       # Upload generated files.
