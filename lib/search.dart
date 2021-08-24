@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_toastr/flutter_toastr.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:url_launcher/url_launcher.dart';
 
@@ -292,14 +293,7 @@ class _searchState extends State<search> {
             RaisedButton(
               onPressed: () {
                 if (myController.text == '') {
-                  Fluttertoast.showToast(
-                      msg: "Enter title to search",
-                      toastLength: Toast.LENGTH_SHORT,
-                      gravity: ToastGravity.BOTTOM,
-                      backgroundColor: Colors.red,
-                      textColor: Colors.white,
-                      fontSize: 16.0,
-                  );
+                  FlutterToastr.show("Enter title to search", context, duration: FlutterToastr.lengthShort, position:  FlutterToastr.bottom);
                 } else {
                   Navigator.pushNamed(context, 'results', arguments: {
                     'title' : title,
