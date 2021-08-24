@@ -21,6 +21,7 @@ jobs:
       - run: flutter devices
       - run: flutter pub get
       - run: flutter build windows
+      - run: tree
     
       # Upload generated files.
       - uses: actions/upload-artifact@v1
