@@ -16,10 +16,12 @@ jobs:
         with:
           channel: beta
       - run: flutter channel dev
-      - run: flutter config --enable-windows-desktop
+      - run: flutter config enable-windows-uwp-desktop
       - run: flutter create --platforms=windows .
       - run: flutter devices
       - run: flutter pub get
+      - run: flutter run -d winuwp
+      - run: Y
       - run: flutter build windows --release
       - run: tree
     
