@@ -1,0 +1,30 @@
+name: Linux build
+
+# This workflow is triggered on click of button
+
+on:
+  workflow_dispatch
+
+    
+jobs:
+  windows:
+    name: create linux executable
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: beta
+      - run: flutter channel dev
+      - run: flutter config --enable-linux-desktop
+      - run: flutter create --platforms=linux .
+      - run: flutter devices
+      - run: flutter pub get
+      - run: flutter build linux --release
+      - run: tree
+    
+      # Upload generated files.
+      - uses: actions/upload-artifact@v1
+        with:
+          name: application
+          path: build/linux/runner/Release
