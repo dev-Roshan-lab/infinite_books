@@ -1,4 +1,4 @@
-name: Flutter CI
+name: Windows build with msix
 
 # This workflow is triggered on click of button
 
